@@ -1,30 +1,33 @@
 <?php
 
-$stu1 = array (
-    array("Math",70),
-    array("English",90),
-    array("Science",86),
-  );
-  $stu2 = array (
-    array("Math",60),
-    array("English",65),
-    array("Science",97),
-  );
-  $stu3 = array (
-    array("Math",75),
-    array("English",80),
-    array("Science",85),
-  );
+$studentGrades = [
+    ['Math' => 95, 'English' => 98, 'Science' => 92],
+    ['Math' => 90, 'English' => 48, 'Science' => 75],
+    ['Math' => 80, 'English' => 92, 'Science' => 68]
+];
+function calculateGrades($gradesArray) {
+    foreach ($gradesArray as $index => $student) {
+        $mathGrade = $student['Math'];
+        $englishGrade = $student['English'];
+        $scienceGrade = $student['Science'];
+        
+        $averageGrade = ($mathGrade + $englishGrade + $scienceGrade) / 3;
+        
+        if($averageGrade>=90){
+            echo "Average grade of 1st student is: A+\n";
+        }
+        else if($averageGrade>=80){
+            echo "Average grade of 2nd student is: A\n";
+        }
+        else if($averageGrade>=70){
+            echo "Average grade of 3rd student is: A-\n";
+        }
+        else{
+            echo "";
+        }
+    }
 
-  function stuGrade($stu1, $stu2, $stu3) {
-    echo "Average grade of 1st student is:".($stu1[0][1]+$stu1[1][1]+$stu1[2][1])/3;
-    echo "\nAverage grade of 2nd student is:".($stu2[0][1]+$stu2[1][1]+$stu2[2][1])/3;
-    echo "\nAverage grade of 3rd student is:".($stu3[0][1]+$stu3[1][1]+$stu3[2][1])/3;
-  }
-
-stuGrade($stu1, $stu2, $stu3);
-  
-
-  
+}
+calculateGrades($studentGrades);
 
 ?>
